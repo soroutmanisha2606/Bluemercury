@@ -1,0 +1,176 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+nav * {
+  font-family: Montserrat Medium, sans-serif;
+}
+
+nav a {
+  text-decoration: none;
+  color: #54647e;
+  font-size: 25px;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+}
+
+nav > #navigations {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  margin: auto;
+  margin-top: 10px;
+}
+
+nav > #navigations > div > div > a {
+  display: flex;
+  align-items: center;
+}
+
+nav > #navigations > div > div > a > span {
+  font-size: small;
+  letter-spacing: 1px;
+  font-weight: bold;
+  display: block;
+  margin-left: 10px;
+}
+
+nav > #navigations > #navigate {
+  display: flex;
+}
+
+nav > #navigations > #navigate > div {
+  margin: 0px 10px;
+}
+
+nav > #heading {
+  display: flex;
+  justify-content: center;
+}
+
+nav > #heading > div {
+  width: 18%;
+}
+
+nav > #heading > div > a > img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+nav > #routes {
+  width: 70%;
+  margin: 10px auto;
+  /* background-color: #54647E; */
+}
+
+nav > #routes > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+nav > #routes > div > div > a {
+  font-size: 18px;
+  color: #344765;
+}
+
+nav > #offer {
+  background-color: #12284c;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: x-small;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+
+nav > #navigations2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0px;
+}
+
+nav > #navigations2 > div{
+    width: 33%;
+}
+
+
+nav > #navigations2 > #navigationOption{
+    margin-left: 30px;
+    padding-top: 5px;
+}
+
+nav > #navigations2 > #navigationOption >button{
+    border: none;
+    background-color: #fff;
+    font-size: 25px;
+    font-weight: 100;
+}
+
+nav > #navigations2 > #headingMedium{
+    display: flex;
+    justify-content: center;
+}
+
+nav > #navigations2 > #headingMedium > div{
+    margin: auto;
+}
+
+nav > #navigations2 > #headingMedium > div > a > img{
+    max-width: 174px;
+    max-height: 100%;
+}
+
+nav > #navigations2 > #navigateMedium{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 30px;
+}
+
+nav > #navigations2 > #navigateMedium > div{
+    margin: 0px 10px;
+}
+
+
+nav > #navigations2 > #headingSmall{
+    display: flex;
+    justify-content: center;
+}
+
+nav > #navigations2 > #headingSmall > div{
+    margin: auto;
+}
+
+nav > #navigations2 > #headingSmall > div > a > img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+nav > #searchBar{
+    margin: 10px;
+}
+
+nav > #searchBar > input{
+    width: 95%;
+    height: 3rem;
+    border: none;
+}
+
+nav > #searchBar > input:focus{
+    outline: none;
+}
+
+nav > #searchBar > button{
+    height: 3rem;
+    margin-left: -5px;
+    width: 5%;
+    border: none;
+    background-color: #fff;
+    font-size: 25px;
+}
