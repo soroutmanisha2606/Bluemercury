@@ -12,6 +12,10 @@ nav a {
   font-size: 25px;
 }
 
+nav a:hover{
+    text-decoration: none;
+}
+
 nav {
   display: flex;
   flex-direction: column;
@@ -88,15 +92,25 @@ nav > #offer {
   font-weight: bold;
 }
 
+.sticky{
+    position: fixed;
+    background-color: #fff;
+    width: 100%;
+    top : 0;
+    left: 0;
+}
+
 
 nav > #navigations2{
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 10px 0px;
+    height: 5rem;
 }
 
 nav > #navigations2 > div{
+    /* position: absolute; */
     width: 33%;
 }
 
@@ -173,4 +187,45 @@ nav > #searchBar > button{
     border: none;
     background-color: #fff;
     font-size: 25px;
+}
+
+nav > #stickymain{
+    position: fixed;
+    background-color: #fff;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+nav > #stickymain > #Sheading{
+    width: 180px;
+}
+
+nav > #stickymain > #Sheading img{
+    max-width: 100%;
+}
+
+nav > #stickymain > #Snavigation{
+    width: 60%;
+}
+
+nav > #stickymain > #Snavigation > div{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav > #stickymain > #Snavigation > div a{
+    font-size: 16px;
+}
+
+nav > #stickymain > #Soption{
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
 }
