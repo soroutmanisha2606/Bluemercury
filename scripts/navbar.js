@@ -1,12 +1,46 @@
+import { baseUrl, getdata } from "../getutility/utility.js"
+
+
+
+
+const searching = debounce(async ()=>{
+  let search = document.getElementById("search").value
+  search = search.toLowerCase()
+  const data = await getdata(`${baseUrl}/product`)
+  // console.log(Object.getOwnPropertyNames(data))
+  const searchResult = data.filter(({brand,name,category,product_type})=>{
+    // return brand===search || name===search || category===search || product_type===search
+    return product_type ===search
+  })
+  // console.log(searchResult.length)
+  const lt = Math.random()*(searchResult.length-7)
+  const rt = lt+6
+  const result = data.slice(lt,rt)
+  // console.log(result)
+  displaySearch(result,search,searchResult.length)
+},1000)
+
 window.addEventListener("resize", resized);
 resized();
-sethover();
+
+function debounce(fn,delay){
+  let timerId
+  return function(){
+    clearTimeout(timerId)
+    timerId = setTimeout(()=>{
+      fn()
+    },delay)
+  }
+}
 
 const offersList = ["Free Gifts With Purchase. Browse Now >","20% Off EltaMD >","20% Off M-61 SPF >","Free Shipping for BlueRewards Members"]
 let offerInd = -1
 setInterval(()=>{
   offerInd = (offerInd+1)%4
-  document.querySelector("#offer>div").innerText = offersList[offerInd] 
+  const offer = document.querySelector("#offer>div")
+  if(offer){
+    offer.innerText = offersList[offerInd] 
+  }
 },3000)
 
 window.addEventListener("scroll", () => {
@@ -16,44 +50,52 @@ window.addEventListener("scroll", () => {
     // console.log(document.documentElement.scrollTop || document.body.scrollTop);
     if (document.documentElement.scrollTop || document.body.scrollTop >= 160) {
       //   console.log(1);
-      document.querySelector("nav").innerHTML = `<div id="stickymain">
-            <div id="Sheading">
-                <div><a href=""><img src="https://cdn.shopify.com/s/files/1/0283/0185/2747/files/bluemercury-logo_1216x.png?v=1648743182" alt=""></a></div>
-            </div>
-            <div id="Snavigation"><div>
-            <div class="routesHoverbox">
-              <a href=""><span class="routesHover" id="navShop">SHOP</span></a>
-            </div>
-            <div class="routesHoverbox">
-              <a href=""><span class="routesHover" id="navNew">NEW!</span></a>
-            </div>
-            <div class="routesHoverbox">
-              <a href=""><span class="routesHover" id="navBrand">BRANDS</span></a>
-            </div>
-            <div class="routesHoverbox">
-              <a href=""><span class="routesHover" id="navExplore">EXPLORE</span></a>
-            </div>
-            <div class="routesHoverbox">
-              <a href=""><span class="routesHover" id="navEvent">EVENTS</span></a>
-            </div>
-            <div class="routesHoverbox">
-              <a href=""><span class="routesHover" id="navAwards">BLUEREWARDS</span></a>
-            </div>
-            <div class="routesHoverbox">
-              <a href=""
-                ><span class="routesHover" id="navReboot"> ROUTINE REBOOT</span></a
-              >
-            </div>
-          </div></div>
-            <div id="Soption">
-                <div><a href=""><i class="fa fa-map-marker"></i></a></div>
-                <div><a href=""><i class="fa fa-heart-o"></i></i></a></div>
-            <div><a href=""><i class="fa fa-search"></i></a></div>
-            <div><a href=""><i class="fa fa-user-circle-o"></i></a></div>
-            <div><a href=""><i class="fa fa-shopping-bag"></i></a></div>
-            </div>
-        </div>
-        <div id="hoverEffectBetween">ab</div>`;
+      document.querySelector("nav").innerHTML = `
+      <div id="stickymain">
+    <div id="Sheading">
+        <div><a href="index.html"><img src="https://cdn.shopify.com/s/files/1/0283/0185/2747/files/bluemercury-logo_1216x.png?v=1648743182" alt=""></a></div>
+    </div>
+    <div id="Snavigation"><div>
+    <div class="routesHoverbox">
+      <p><span class="routesHover" id="navShop">SHOP</span></p>
+    </div>
+    <div class="routesHoverbox">
+      <p><span class="routesHover" id="navNew">NEW!</span></p>
+    </div>
+    <div class="routesHoverbox">
+      <p><span class="routesHover" id="navBrand">BRANDS</span></p>
+    </div>
+    <div class="routesHoverbox">
+      <p><span class="routesHover" id="navExplore">EXPLORE</span></p>
+    </div>
+    <div class="routesHoverbox">
+      <p><span class="routesHover" id="navEvent">EVENTS</span></p>
+    </div>
+    <div class="routesHoverbox">
+      <p><span class="routesHover" id="navAwards">BLUEREWARDS</span></p>
+    </div>
+    <div class="routesHoverbox">
+      <p
+        ><span class="routesHover" id="navReboot"> ROUTINE REBOOT</span></p
+      >
+    </div>
+  </div></div>
+    <div id="Soption">
+        <div><p><i class="fa fa-map-marker"></i></p></div>
+        <div><p><i class="fa fa-heart-o"></i></i></a></div>
+    <div><p id="searchBtn"><i class="fa fa-search"></i></p></div>
+    <div><p id="registerBtn"><i class="fa fa-user-circle-o"></i></p></div>
+    <div><p id="bagBtn"><i class="fa fa-shopping-bag"></i></p></div>
+    </div>
+</div>
+<div id="hoverEffectBetween"></div>
+
+<div id="hoverSearchBarBetween">
+<button><i class="fa fa-search"></i></button>
+<input type="text" name="" id="search" placeholder="Search..."/>
+<button id="cancelBtn">&#10006;</button>
+<div id="hoverSerachResult"></div>
+</div>`;
     } else {
       //   console.log(2);
       resized();
@@ -71,6 +113,7 @@ window.addEventListener("scroll", () => {
     }
   }
   sethover();
+  setButton()
   //   console.log(document.documentElement.scrollTop || document.body.scrollTop)
 });
 
@@ -78,74 +121,86 @@ function resized() {
   // console.log(2)
   const w = window.outerWidth;
   // console.log(w)
+  const user = JSON.parse(localStorage.getItem("blueCloneUser"))
   document.querySelector("nav").innerHTML = `${
     w > 1024
       ? `<div id="navigations">
-    <div id="geoLocation">
-        <div><a href=""><i class="fa fa-map-marker"></i><span>STORE & SPA LOCATOR</span></a></div>
+      <div id="geoLocation">
+          <div><p><i class="fa fa-map-marker"></i><span>STORE & SPA LOCATOR</span></p></div>
+      </div>
+      <div id="navigate">
+          <div><p><i class="fa fa-heart-o"></i></i><span>WISHLIST</span></a></div>
+          <div><p id="searchBtn"><i class="fa fa-search"></i><span>SEARCH</span></p></div>
+          <div><p id="registerBtn"><i class="fa fa-user-circle-o"></i><span>${user?`ACCOUNT`:`SIGN IN/UP`}</span></p></div>
+          <div><p id="bagBtn"><i class="fa fa-shopping-bag"></i><span>BAG</span></p></div>
+      </div>
     </div>
-    <div id="navigate">
-        <div><a href=""><i class="fa fa-heart-o"></i></i><span>WISHLIST</span></a></div>
-        <div><a href=""><i class="fa fa-search"></i><span>SEARCH</span></a></div>
-        <div><a href=""><i class="fa fa-user-circle-o"></i><span>SIGN IN/UP</span></a></div>
-        <div><a href=""><i class="fa fa-shopping-bag"></i><span>BAG</span></a></div>
+  
+    <div id="heading">
+      <div><a href="index.html"><img src="https://cdn.shopify.com/s/files/1/0283/0185/2747/files/bluemercury-logo_1216x.png?v=1648743182" alt=""></a></div>
+    </div>
+  
+    <div id="routes">
+    <div>
+    <div class="routesHoverbox">
+      <p><span class="routesHover" id="navShop">SHOP</span></p>
+    </div>
+    <div class="routesHoverbox">
+      <p><span class="routesHover" id="navNew">NEW!</span></p>
+    </div>
+    <div class="routesHoverbox">
+      <p><span class="routesHover" id="navBrand">BRANDS</span></p>
+    </div>
+    <div class="routesHoverbox">
+      <p><span class="routesHover" id="navExplore">EXPLORE</span></p>
+    </div>
+    <div class="routesHoverbox">
+      <p><span class="routesHover" id="navEvent">EVENTS</span></p>
+    </div>
+    <div class="routesHoverbox">
+      <p><span class="routesHover" id="navAwards">BLUEREWARDS</span></p>
+    </div>
+    <div class="routesHoverbox">
+      <p
+        ><span class="routesHover" id="navReboot"> ROUTINE REBOOT</span></p
+      >
     </div>
   </div>
-
-  <div id="heading">
-    <div><a href=""><img src="https://cdn.shopify.com/s/files/1/0283/0185/2747/files/bluemercury-logo_1216x.png?v=1648743182" alt=""></a></div>
-  </div>
-
-  <div id="routes">
-  <div>
-  <div class="routesHoverbox">
-    <a href=""><span class="routesHover" id="navShop">SHOP</span></a>
-  </div>
-  <div class="routesHoverbox">
-    <a href=""><span class="routesHover" id="navNew">NEW!</span></a>
-  </div>
-  <div class="routesHoverbox">
-    <a href=""><span class="routesHover" id="navBrand">BRANDS</span></a>
-  </div>
-  <div class="routesHoverbox">
-    <a href=""><span class="routesHover" id="navExplore">EXPLORE</span></a>
-  </div>
-  <div class="routesHoverbox">
-    <a href=""><span class="routesHover" id="navEvent">EVENTS</span></a>
-  </div>
-  <div class="routesHoverbox">
-    <a href=""><span class="routesHover" id="navAwards">BLUEREWARDS</span></a>
-  </div>
-  <div class="routesHoverbox">
-    <a href=""
-      ><span class="routesHover" id="navReboot"> ROUTINE REBOOT</span></a
-    >
-  </div>
-</div>
-  </div>
-<div id="hoverEffect"></div>
-  `
+    </div>
+  <div id="hoverEffect"></div>
+  <div id="hoverSearchBar">
+  <button><i class="fa fa-search"></i></button>
+  <input type="text" name="" id="search" placeholder="Search...">
+  <button id="cancelBtn">&#10006;</button>
+  <div id="hoverSerachResult"></div>
+  </div>`
       : w > 768
       ? `<div id="navigations2">
   <div id="navigationOption"><button>
       <span class="glyphicon glyphicon-menu-hamburger"></span>
   </button></div>
-  <div id="headingMedium"><div><a href=""><img src="https://cdn.shopify.com/s/files/1/0283/0185/2747/files/bluemercury-logo_1216x.png?v=1648743182" alt=""></a></div></div>
+  <div id="headingMedium"><div><a href="index.html"><img src="https://cdn.shopify.com/s/files/1/0283/0185/2747/files/bluemercury-logo_1216x.png?v=1648743182" alt=""></a></div></div>
   <div id="navigateMedium">
-      <div><a href=""><i class="fa fa-heart-o"></i></i></a></div>
-  <div><a href=""><i class="fa fa-search"></i></a></div>
-  <div><a href=""><i class="fa fa-user-circle-o"></i></a></div>
-  <div><a href=""><i class="fa fa-shopping-bag"></i></a></div>
+      <div><p><i class="fa fa-heart-o"></i></i></a></div>
+      <div><p id="searchBtn"><i class="fa fa-search"></i></p></div>
+      <div><p id="registerBtn"><i class="fa fa-user-circle-o"></i></p></div>
+      <div><p id="bagBtn"><i class="fa fa-shopping-bag"></i></p></div>
   </div>
+</div>
+<div id="hoverSearchBarBetween">
+<button><i class="fa fa-search"></i></button>
+<input type="text" name="" id="search" placeholder="Search..."/>
+<button id="cancelBtn">&#10006;</button>
+<div id="hoverSerachResult"></div>
 </div>`
       : `<div id="navigations2">
 <div id="navigationOption"><button>
     <span class="glyphicon glyphicon-menu-hamburger"></span>
 </button></div>
-<div id="headingSmall"><div><a href=""><img src="https://cdn.shopify.com/s/files/1/0283/0185/2747/files/bluemercury-logo_1216x.png?v=1648743182" alt=""></a></div></div>
+<div id="headingSmall"><div><a href="index.html"><img src="https://cdn.shopify.com/s/files/1/0283/0185/2747/files/bluemercury-logo_1216x.png?v=1648743182" alt=""></a></div></div>
 <div id="navigateMedium">
-    <div><a href=""><i class="fa fa-heart-o"></i></i></a></div>
-<div><a href=""><i class="fa fa-shopping-bag"></i></a></div>
+    <div><p><i class="fa fa-heart-o"></i></i></a></div>
+<div><p id="bagBtn"><i class="fa fa-shopping-bag"></i></p></div>
 </div>
 </div>
 <div id="searchBar">
@@ -156,6 +211,7 @@ function resized() {
 <div></div>
 </div>`;
 sethover()
+setButton()
 }
 
 function sethover() {
@@ -485,4 +541,112 @@ function sethover() {
     });
   }
 }
+
+function setButton(){
+  document.getElementById("bagBtn").addEventListener("click",()=>{
+    console.log("bag")
+  })
+  
+  const sbtn = document.getElementById("searchBtn")
+  if(sbtn){
+    sbtn.addEventListener("click",()=>{
+      // console.log("search")
+      const hover = document.getElementById("hoverEffect")?document.getElementById("hoverEffect"):document.getElementById("hoverEffectBetween");
+      if(hover){
+        hover.style.display="none"
+      }
+      const searchBtn = document.getElementById("hoverSearchBar")?document.getElementById("hoverSearchBar"):document.getElementById("hoverSearchBarBetween")
+
+      // console.log(searchBtn)
+      if(searchBtn){
+        searchBtn.style.display="block"
+        document.getElementById("cancelBtn").addEventListener("click",()=>{
+          searchBtn.style.display="none"
+        })
+      }
+    })
+
+    const search = document.getElementById("search")
+    if(search){
+      search.addEventListener("input",searching)
+    }
+  }
+
+  const rbtn = document.getElementById("registerBtn")
+  if(rbtn){
+    rbtn.addEventListener("click",()=>{
+      // console.log("register")
+      const user = JSON.parse(localStorage.getItem("blueCloneUser"))
+      if(!user){
+        location = "login.html"
+      }
+    })
+  } 
+}
+
+
+function displaySearch(data,val,len){
+  // console.log(data,val,len)
+  const main = document.getElementById("hoverSerachResult")
+  main.innerText = ""
+  const div = document.createElement("div")
+
+  // staticResult
+  const staticResult = document.createElement("div")
+  staticResult.setAttribute("id","staticResult")
+  staticResult.innerHTML = `<div>
+  <h2>QUICK SEARCH</h2>
+  <p>${val}</p>
+  <p><span>Gel</span>${val}</p>
+  <p><span>Ink</span>${val}</p>
+</div>
+<div>
+  <h2>CATEGORIES</h2>
+<p>Makeup</p>
+</div>`
+  const dyanmicResult = document.createElement("div")
+  dyanmicResult.setAttribute("id","dyanmicResult")
+
+  const resultHeading = document.createElement("div")
+  resultHeading.setAttribute("id","resultHeading")
+  const h2 = document.createElement("h2")
+  h2.innerText = "PRODUCTS"
+  const d = document.createElement("div")
+  const p1 = document.createElement("p")
+  p1.innerText = `${len} Results`
+  const p2 = document.createElement("p")
+  p2.innerText = "VIEW ALL"
+  p2.addEventListener("click",()=>{
+    localStorage.setItem("searchVal",val)
+  })
+  d.append(p1,p2)
+  resultHeading.append(h2,d)
+
+  const resultProducts = document.createElement("div")
+  resultProducts.setAttribute("id","resultProducts")
+  data.forEach(({api_featured_image,description,name,id})=>{
+    // console.log(api_featured_image)
+    // console.log(description)
+    // console.log(name)
+    // console.log(id)
+    const rp = document.createElement("div")
+    rp.setAttribute("class","rp")
+    rp.innerHTML = `<div class="rpImageBox"><img src=${api_featured_image}" alt=""></div>
+    <div><h4>${name}</h4>
+    <p>${description.substr(0,10)}...</p>
+    </div>`
+    rp.addEventListener("click",()=>{
+      localStorage.setItem("paticularProduct",id)
+    })
+    resultProducts.append(rp)
+  })
+  console.log(resultProducts)
+  dyanmicResult.append(resultHeading,resultProducts)
+  div.append(staticResult,dyanmicResult)
+  main.append(div)
+}
+
+
+
+
 
