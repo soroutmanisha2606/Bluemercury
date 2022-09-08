@@ -30,6 +30,7 @@ function debounce(fn,delay){
     timerId = setTimeout(()=>{
       fn()
     },delay)
+    
   }
 }
 
