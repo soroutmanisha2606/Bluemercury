@@ -1,6 +1,10 @@
-import { baseUrl, getdata, patchData, deleteData,changeQuantity, removeItem } from "../getutility/utility.js";
+import { baseUrl, getdata, changeQuantity, removeItem } from "../getutility/utility.js";
 
 createCart();
+
+document.getElementById("coBtn").addEventListener("click",()=>{
+    location = "checkOut.html"
+})
 
 async function createCart() {
     // const data = await getdata(`${baseUrl}/bag`);

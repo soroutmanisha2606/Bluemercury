@@ -9,10 +9,10 @@ const searching = debounce(async ()=>{
   const data = await getdata(`${baseUrl}/product`)
   // console.log(Object.getOwnPropertyNames(data))
   const searchResult = data.filter(({brand,name,category,product_type})=>{
-    // return brand===search || name===search || category===search || product_type===search
-    return product_type ===search
+    return brand===search || name===search || category===search || product_type===search
+    // return product_type ===search
   })
-  // console.log(searchResult.length)
+  console.log(searchResult.length)
   const lt = Math.random()*(searchResult.length-7)
   const rt = lt+6
   const result = data.slice(lt,rt)
@@ -528,6 +528,8 @@ function sethover() {
           // console.log(e.target.innerText)
           localStorage.setItem("cloneBrand",e.target.innerText.toLowerCase())
           localStorage.removeItem("cloneCategory")
+          localStorage.removeItem("searchVal")
+          location = "ProductPage.html"
         })
       }
 
@@ -536,6 +538,8 @@ function sethover() {
           // console.log(e.target.innerText)
           localStorage.setItem("cloneCategory",e.target.innerText.toLowerCase())
           localStorage.removeItem("cloneBrand")
+          localStorage.removeItem("searchVal")
+          location = "productPage.html"
         })
       }
   }
@@ -545,7 +549,8 @@ function sethover() {
 
 function setButton(){
   document.getElementById("bagBtn").addEventListener("click",()=>{
-    console.log("bag")
+    // console.log("bag")
+    location = "bag.html"
   })
   
   const sbtn = document.getElementById("searchBtn")
@@ -619,6 +624,9 @@ function displaySearch(data,val,len){
   p2.innerText = "VIEW ALL"
   p2.addEventListener("click",()=>{
     localStorage.setItem("searchVal",val)
+    localStorage.removeItem("cloneCategory")
+    localStorage.removeItem("cloneBrand")
+    location = "ProductPage.html"
   })
   d.append(p1,p2)
   resultHeading.append(h2,d)
@@ -638,10 +646,11 @@ function displaySearch(data,val,len){
     </div>`
     rp.addEventListener("click",()=>{
       localStorage.setItem("paticularProduct",id)
+      location = "paticularProduct.html"
     })
     resultProducts.append(rp)
   })
-  console.log(resultProducts)
+  // console.log(resultProducts)
   dyanmicResult.append(resultHeading,resultProducts)
   div.append(staticResult,dyanmicResult)
   main.append(div)

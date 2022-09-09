@@ -72,32 +72,57 @@ const customerInfo = `<div id="contactBox">
         </div>
     </div>
 </form>
-</div>`
-let shipment_charge = 7
-createform()
-createCart()
-function createform(){
-    document.getElementById("dynamicCheckOut").innerHTML = customerInfo
-    document.getElementById("na1").style.fontWeight = "bold"
-    document.getElementById("na2").style.fontWeight = "normal"
-    document.getElementById("na3").style.fontWeight = "normal"
+</div>`;
+let shipment_charge = 7;
+let dis = 0;
+createform();
+createCart();
+function createform() {
+  document.getElementById("dynamicCheckOut").innerHTML = customerInfo;
+  document.getElementById("na1").style.fontWeight = "bold";
+  document.getElementById("na2").style.fontWeight = "normal";
+  document.getElementById("na3").style.fontWeight = "normal";
 
-    document.getElementById("customerInfoBtn").addEventListener("click",()=>{
-        event.preventDefault()
-        const email = document.getElementById("email").value
-        const form = document.querySelector("#shipping>form")
-        const {country,firstName,lastName,address,apartment,city,state,zipCode} = form
-        if(email==="" || country.value==="" || firstName.value==="" || lastName.value==="" || address.value==="" || city.value==="" || state.value==="" || zipCode.value ===""){
-            alert("All fields are required.")
-        }
-        else{
-            createshipment(email,apartment.value,address.value,city.value,state.value,country.value)
-        }            
-    })
+  document.getElementById("customerInfoBtn").addEventListener("click", () => {
+    event.preventDefault();
+    const email = document.getElementById("email").value;
+    const form = document.querySelector("#shipping>form");
+    const {
+      country,
+      firstName,
+      lastName,
+      address,
+      apartment,
+      city,
+      state,
+      zipCode,
+    } = form;
+    if (
+      email === "" ||
+      country.value === "" ||
+      firstName.value === "" ||
+      lastName.value === "" ||
+      address.value === "" ||
+      city.value === "" ||
+      state.value === "" ||
+      zipCode.value === ""
+    ) {
+      alert("All fields are required.");
+    } else {
+      createshipment(
+        email,
+        apartment.value,
+        address.value,
+        city.value,
+        state.value,
+        country.value
+      );
+    }
+  });
 }
 
-function createshipment(email,apartment,address,city,state,country){
-    document.getElementById("dynamicCheckOut").innerHTML = `<div id="contactBox">
+function createshipment(email, apartment, address, city, state, country) {
+  document.getElementById("dynamicCheckOut").innerHTML = `<div id="contactBox">
     <p>Contact information</p>
     <div id="shipssss">
         <div class="shippingDetails">
@@ -144,32 +169,47 @@ function createshipment(email,apartment,address,city,state,country){
             <button id="shippingBtn">CONTINUE TO PAYMENT</button>
         </div>
     </div>
-    </div>`
-    document.getElementById("na1").style.fontWeight = "normal"
-    document.getElementById("na2").style.fontWeight = "bold"
-    document.getElementById("na3").style.fontWeight = "normal"
+    </div>`;
+  document.getElementById("na1").style.fontWeight = "normal";
+  document.getElementById("na2").style.fontWeight = "bold";
+  document.getElementById("na3").style.fontWeight = "normal";
 
-    document.querySelectorAll("#change").forEach((ele)=>{
-        ele.addEventListener("click",()=>{
-            createform()
-        })
-    })
-    
-    document.getElementsByName("sOptions").forEach(ele=>{
-        ele.onclick = ()=>{
-            shipment_charge = parseInt(ele.value)
-            calculatetotal()
-        }
-    })
+  document.querySelectorAll("#change").forEach((ele) => {
+    ele.addEventListener("click", () => {
+      createform();
+    });
+  });
 
-    document.getElementById("shippingBtn").addEventListener("click",()=>{
-        createPayment(email,apartment,address,city,state,country,shipment_charge)
-    })
+  document.getElementsByName("sOptions").forEach((ele) => {
+    ele.onclick = () => {
+      shipment_charge = parseInt(ele.value);
+      calculatetotal();
+    };
+  });
+
+  document.getElementById("shippingBtn").addEventListener("click", () => {
+    createPayment(
+      email,
+      apartment,
+      address,
+      city,
+      state,
+      country,
+      shipment_charge
+    );
+  });
 }
 
-
-function createPayment(email,apartment,address,city,state,country,shipment_charge){
-    document.getElementById("dynamicCheckOut").innerHTML = `<div id="contactBox">
+function createPayment(
+  email,
+  apartment,
+  address,
+  city,
+  state,
+  country,
+  shipment_charge
+) {
+  document.getElementById("dynamicCheckOut").innerHTML = `<div id="contactBox">
     <p>Contact information</p>
     <div id="shipssss">
       <div class="shippingDetails">
@@ -189,7 +229,13 @@ function createPayment(email,apartment,address,city,state,country,shipment_charg
       <div class="shippingDetails">
         <div>Method</div>
         <div id="shippingAddress">
-        ${shipment_charge==7?"Ground Shipping (3-7 days)":shipment_charge==10?"Two-Day Shipping (Excludes PO Box or APO/FPO)":"Overnight Shipping (Excludes PO Box or APO/FPO)"}  
+        ${
+          shipment_charge == 7
+            ? "Ground Shipping (3-7 days)"
+            : shipment_charge == 10
+            ? "Two-Day Shipping (Excludes PO Box or APO/FPO)"
+            : "Overnight Shipping (Excludes PO Box or APO/FPO)"
+        }  
         </div>
         <div><button id="change1">CHANGE</button></div>
       </div>
@@ -342,120 +388,137 @@ function createPayment(email,apartment,address,city,state,country,shipment_charg
     <div>
       <button id="CompleteBtn">COMPLETE ORDER</button>
     </div>
-  </div>`
+  </div>`;
 
-  document.getElementById("na1").style.fontWeight = "normal"
-    document.getElementById("na2").style.fontWeight = "normal"
-    document.getElementById("na3").style.fontWeight = "bold"
+  document.getElementById("na1").style.fontWeight = "normal";
+  document.getElementById("na2").style.fontWeight = "normal";
+  document.getElementById("na3").style.fontWeight = "bold";
 
-  document.querySelectorAll("#change").forEach((ele)=>{
-    ele.addEventListener("click",()=>{
-        createform()
-    })
-})
+  document.querySelectorAll("#change").forEach((ele) => {
+    ele.addEventListener("click", () => {
+      createform();
+    });
+  });
 
-document.getElementById("change1").addEventListener("click",()=>{
-    createshipment(email,apartment,address,city,state,country)
-})
+  document.getElementById("change1").addEventListener("click", () => {
+    createshipment(email, apartment, address, city, state, country);
+  });
 
-document.getElementsByName("pOptions").forEach(ele=>{
-    const c = document.getElementById("creditCard")
-    const p = document.getElementById("imageCard1")
-    const k = document.getElementById("imageCard2")
-    ele.onclick = ()=>{
-        // console.log(ele)
-        if(ele.id==="p"){
-            p.style.display = "flex"
-            c.style.display = "none"
-            k.style.display = "none"    
-        }
-        else if(ele.id==="k"){
-            p.style.display = "none"
-            c.style.display = "none"
-            k.style.display = "flex" 
-        }
-        else{
-            p.style.display = "none"
-            c.style.display = "block"
-            k.style.display = "none"
-        }
+  document.getElementsByName("pOptions").forEach((ele) => {
+    const c = document.getElementById("creditCard");
+    const p = document.getElementById("imageCard1");
+    const k = document.getElementById("imageCard2");
+    ele.onclick = () => {
+      // console.log(ele)
+      if (ele.id === "p") {
+        p.style.display = "flex";
+        c.style.display = "none";
+        k.style.display = "none";
+      } else if (ele.id === "k") {
+        p.style.display = "none";
+        c.style.display = "none";
+        k.style.display = "flex";
+      } else {
+        p.style.display = "none";
+        c.style.display = "block";
+        k.style.display = "none";
+      }
+    };
+  });
+
+  document.getElementsByName("bOptions").forEach((ele) => {
+    const d = document.getElementById("diff");
+    ele.onclick = () => {
+      // console.log(ele)
+      if (ele.id === "d") {
+        d.style.display = "block";
+      } else {
+        d.style.display = "none";
+      }
+    };
+  });
+  document.getElementById("CompleteBtn").addEventListener("click", () => {
+    const c = document.getElementById("c");
+    const d = document.getElementById("d");
+    const cd = c.checked ? checkCard() : true;
+    const dc = d.checked ? checkAddress() : true;
+
+    if (cd && dc) {
+      alert("We received your Order.");
+      location = "index.html";
     }
-})
-
-document.getElementsByName("bOptions").forEach(ele=>{
-    const d = document.getElementById("diff")
-    ele.onclick = ()=>{
-        // console.log(ele)
-        if(ele.id==="d"){
-            d.style.display = "block"  
-        }
-        else{
-            d.style.display = "none" 
-        }
-    }
-})
-document.getElementById("CompleteBtn").addEventListener("click",()=>{
-    const c = document.getElementById("c")
-    const d = document.getElementById("d")
-    const cd = c.checked?checkCard():true
-    const dc = d.checked?checkAddress():true
-
-    if(cd && dc){
-        alert("We received your Order.")
-        location = "index.html"
-    }
-})
+  });
 }
 
-function checkCard(){
-    event.preventDefault()
-    const form = document.querySelector("#creditCard>form")
-        const {cardNumber,nameOnCard,expiryDate,securityCode} = form
+function checkCard() {
+  event.preventDefault();
+  const form = document.querySelector("#creditCard>form");
+  const { cardNumber, nameOnCard, expiryDate, securityCode } = form;
 
-        if(cardNumber.value==="" || nameOnCard.value==="" || expiryDate.value==="" || securityCode.value===" "){
-            alert("All fields Required for the Credit Card Details")
-            return false
-        }
-        else if(cardNumber.value.length!==16){
-            alert("Invalid Card Number.")
-            return false
-        }
-        const d = new Date()
-        const d1 = new Date(expiryDate.value)
-        if(d.getTime()<d1.getTime()){
-            alert("Your Card has been Expired.")
-            return false
-        }
-        return true
+  if (
+    cardNumber.value === "" ||
+    nameOnCard.value === "" ||
+    expiryDate.value === "" ||
+    securityCode.value === " "
+  ) {
+    alert("All fields Required for the Credit Card Details");
+    return false;
+  } else if (cardNumber.value.length !== 16) {
+    alert("Invalid Card Number.");
+    return false;
+  }
+  const d = new Date();
+  const d1 = new Date(expiryDate.value);
+  if (d.getTime() < d1.getTime()) {
+    alert("Your Card has been Expired.");
+    return false;
+  }
+  return true;
 }
 
-function checkAddress(){
-    {
-        event.preventDefault()
-        const email = document.getElementById("email").value
-        const form = document.querySelector("#diff>form")
-        const {country,firstName,lastName,address,apartment,city,state,zipCode} = form
-        if(email==="" || country.value==="" || firstName.value==="" || lastName.value==="" || address.value==="" || city.value==="" || state.value==="" || zipCode.value ===""){
-            alert("All fields are required.")
-            return false
-        }
-        else{
-            return true
-        }            
+function checkAddress() {
+  {
+    event.preventDefault();
+    const email = document.getElementById("email").value;
+    const form = document.querySelector("#diff>form");
+    const {
+      country,
+      firstName,
+      lastName,
+      address,
+      apartment,
+      city,
+      state,
+      zipCode,
+    } = form;
+    if (
+      email === "" ||
+      country.value === "" ||
+      firstName.value === "" ||
+      lastName.value === "" ||
+      address.value === "" ||
+      city.value === "" ||
+      state.value === "" ||
+      zipCode.value === ""
+    ) {
+      alert("All fields are required.");
+      return false;
+    } else {
+      return true;
     }
+  }
 }
 
-
-function createCart(){
-    const data = JSON.parse(localStorage.getItem("cloneBag")) || []
-    displayCart(data);
+function createCart() {
+  const data = JSON.parse(localStorage.getItem("cloneBag")) || [];
+  displayCart(data);
 }
 
-function displayCart(data){
-    // console.log(data)
-    const div = document.getElementById("cartItems")
-    data.forEach(({api_featured_image,name,brand,price,quantity})=>{
-        div.innerHTML += `<div class="cartItem">
+function displayCart(data) {
+  // console.log(data)
+  const div = document.getElementById("cartItems");
+  data.forEach(({ api_featured_image, name, brand, price, quantity }) => {
+    div.innerHTML += `<div class="cartItem">
         <div class="itemD">
             <div id="image">
                 <img src="${api_featured_image}" alt="">
@@ -468,21 +531,21 @@ function displayCart(data){
         </div>
 
         <div class="itemPrice">
-            <p>$${parseInt(quantity)*parseFloat(price)}</p>
+            <p>$${parseInt(quantity) * parseFloat(price)}</p>
         </div>
-    </div>`
-    })
-    calculatetotal()
+    </div>`;
+  });
+  calculatetotal();
 }
 
-function calculatetotal(dis=0){
-    const data = JSON.parse(localStorage.getItem("cloneBag")) || []
-    let sum = 0
-    data.forEach(({price,quantity})=>{
-        sum+=parseInt(quantity)*parseFloat(price)
-    })
-    const div = document.getElementById("priceDistribution")
-    div.innerHTML = `<div>
+function calculatetotal() {
+  const data = JSON.parse(localStorage.getItem("cloneBag")) || [];
+  let sum = 0;
+  data.forEach(({ price, quantity }) => {
+    sum += parseInt(quantity) * parseFloat(price);
+  });
+  const div = document.getElementById("priceDistribution");
+  div.innerHTML = `<div>
     <p>SubTotal</p>
     <p>$${sum}</p>
   </div>
@@ -492,21 +555,24 @@ function calculatetotal(dis=0){
   </div>
   <div>
     <p>Taxes</p>
-    <p>$${(sum/100)*18}</p>
+    <p>$${(sum / 100) * 18}</p>
   </div>
   <div>
     <p>Discount</p>
-    <p>$${(dis/100)*sum}</p>
-  </div>`
+    <p>$${(dis / 100) * sum}</p>
+  </div>`;
 
-  const div2 = document.getElementById("totalCost")
+  const div2 = document.getElementById("totalCost");
   div2.innerHTML = `<p>Total</p>
-  <p>USD <span>$${sum+shipment_charge+((sum/100)*18)-((dis/100)*sum)}</span></p>`
+  <p>USD <span>$${
+    sum + shipment_charge + (sum / 100) * 18 - (dis / 100) * sum
+  }</span></p>`;
 }
 
-document.getElementById("coupon").addEventListener("click",()=>{
-    const val = document.getElementById("promoCode").value
-    if(val==="bluemercury"){
-        calculatetotal(dis=30)
-    }
-})
+document.getElementById("coupon").addEventListener("click", () => {
+  const val = document.getElementById("promoCode").value;
+  if (val === "bluemercury") {
+    dis = 30
+    calculatetotal();
+  }
+});
