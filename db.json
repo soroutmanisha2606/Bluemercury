@@ -42185,6 +42185,13 @@
       "lastName": "Aziz",
       "password": "123456789",
       "id": 1
+    },
+    {
+      "email": "hermitcupper98@gmail.com",
+      "firstName": "Md Sibghat",
+      "lastName": "Aziz",
+      "password": "123456789",
+      "id": 2
     }
   ],
   "bag": [
