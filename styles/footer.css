@@ -1,0 +1,166 @@
+body {
+  margin: 0px;
+}
+#footer {
+  border-top: 1px solid black;
+
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  width: 100%;
+
+  font-size: 15px;
+  /* height: 350px; */
+  margin-top: 40px;
+}
+#left {
+  margin-top: 30px;
+  width: 30%;
+  gap: 40px;
+  margin-left: 30px;
+  padding-left: 10px;
+  color: #737070;
+}
+#footer_icons {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  color: black;
+  margin-left: 10px;
+  margin-right: -10px;
+  margin-bottom: 60px;
+  height: 15px;
+}
+#footer_icons a {
+  text-decoration: none;
+  color: black;
+}
+
+footer input {
+  border: none;
+  margin-top: 20px;
+  margin-bottom: 18px;
+}
+a {
+  color: #999999;
+}
+#right {
+  width: 75%;
+  display: flex;
+  gap: 40px;
+}
+.footer_ref {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+  line-height: 24px;
+}
+.footer_ref a {
+  text-decoration: none;
+  color: #999999;
+}
+.footer_divs ~ div,
+#one {
+  margin-top: 30px;
+  color: #737070;
+}
+/*////////////////////////////////*/
+ a{
+    text-decoration: none;
+    color: #999999
+}
+.baby_foot1,.baby_foot2,.baby_foot3,.baby_foot4{
+    display: flex;
+    justify-content: space-between;
+    
+    flex-direction: column  ;
+    margin-left: 20px;
+    gap: 10px;
+    color: #12284c
+ 
+   
+   
+}
+
+
+
+.baby_div{
+    display: flex;  
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 20px                             ;
+    
+}
+#foot{
+    margin-top: 40px;
+    gap: 30px;
+}
+
+#responsive_upper{
+    border: 2px solid black;
+    background-color: #12284c;
+    color: white;
+    height: 250px;
+    font-size: 20px;
+    margin-top: 40px;
+    margin-bottom: -40px;
+    margin-top: 20px;
+}
+#res_inp{
+    background-color: #12284c;
+    display: flex;
+    color: white;
+    width: 100%;
+    flex-direction: row;
+    flex-direction: row;
+    border: none;
+    border-bottom: 2px solid #fff;
+}
+#icon{
+    display: flex;
+}
+#responsive_icons{
+width: 40%;
+display: flex;
+justify-content: space-around;
+margin-top:80px;
+color: white;
+
+}
+#responsive_icons a{
+    text-decoration: none;
+    color: white;
+}
+/*rwes*/
+#footer_responsive {
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+#plus,
+#plus1,
+#plus2,
+#plus3 {
+  font-size: 30px;
+}
+#foot a {
+  text-decoration: none;
+  color: black;
+}
+p a {
+  color: black;
+}
+.baby_foot1,
+.baby_foot2,
+.baby_foot3,
+.baby_foot4 a {
+  color: #12284c;
+}
+
+p{
+  font-size: 14px;
+}

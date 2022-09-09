@@ -1,10 +1,11 @@
-import { baseUrl, getdata, patchData, deleteData } from "../getutility/utility.js";
+import { baseUrl, getdata, patchData, deleteData,changeQuantity, removeItem } from "../getutility/utility.js";
 
 createCart();
 
 async function createCart() {
-  const data = await getdata(`${baseUrl}/bag`);
-  displayCart(data);
+    // const data = await getdata(`${baseUrl}/bag`);
+    const data = JSON.parse(localStorage.getItem("cloneBag")) || []
+    displayCart(data);
 }
 
 function displayCart(data){
@@ -39,10 +40,12 @@ function displayCart(data){
         const btnBox = document.createElement("div")
         btnBox.setAttribute("class","btnBox")
         const dBtn = document.createElement("button")
-        dBtn.addEventListener("click",()=>{changeQuantity(-1,id)})
+        dBtn.addEventListener("click",()=>{changeQuantity(-1,id),
+        createCart()})
         dBtn.innerHTML="-"
         const iBtn = document.createElement("button")
-        iBtn.addEventListener("click",()=>{changeQuantity(1,id)})
+        iBtn.addEventListener("click",()=>{changeQuantity(1,id)
+        createCart()})
         iBtn.innerText = "+"
         const quan = document.createElement("p")
         quan.innerText = quantity
@@ -51,7 +54,8 @@ function displayCart(data){
         const linkBox = document.createElement("div")
         linkBox.setAttribute("class","linkBox")
         const link = document.createElement("button")
-        link.addEventListener("click",()=>{removeItem(id)})
+        link.addEventListener("click",()=>{removeItem(id)
+        createCart()})
         link.innerHTML = `<span>Remove</span>`
         linkBox.append(link)
 
@@ -73,18 +77,6 @@ function displayCart(data){
     document.getElementById("cartnumber").innerText = q>1?"items":"item"
 }
 
-async function changeQuantity(i,id){
-    const data = await getdata(`${baseUrl}/bag/${id}`);
-    if(data.quantity+i===0){
-        deleteData(`${baseUrl}/bag/${id}`)
-    }
-    else{
-        data.quantity += i
-        patchData(`${baseUrl}/bag/${id}`,JSON.stringify(data))
-    }
-    createCart()
-}
 
-async function removeItem(id){
-    deleteData(`${baseUrl}/bag/${id}`)
-}
+
+

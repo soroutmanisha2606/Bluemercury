@@ -37,16 +37,16 @@ nav > #navigations > div > div > a,
 nav > #navigations > div > div > p {
   display: flex;
   align-items: center;
+  font-size: 18px;
 }
 
 nav > #navigations > div > div > a > span,
 nav > #navigations > div > div > p > span {
-  font-size: normal;
+  font-size: 15px;
   letter-spacing: 1px;
-  font-weight: bold;
+  /* font-weight: bold; */
   display: block;
   margin-left: 10px;
-  font-size: normal;
 }
 
 nav > #navigations > #navigate {
@@ -160,7 +160,7 @@ nav > #navigations2 > #navigateMedium {
   display: flex;
   justify-content: flex-end;
   margin-right: 30px;
-  /* font-size: larger; */
+  font-size: 18px;
 }
 
 nav > #navigations2 > #navigateMedium > div {

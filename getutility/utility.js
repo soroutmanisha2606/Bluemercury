@@ -63,4 +63,45 @@ async function patchData(url,datas){
     }
 }
 
-export {baseUrl, getdata, postData, deleteData, patchData}
+
+async function changeQuantity(i,id){
+    const data = JSON.parse(localStorage.getItem("cloneBag")) || []
+    let index 
+    const present = data.filter(({id : bag_id},ind)=>{
+        if(id===bag_id){
+            index = ind
+            return true
+        }
+        return false
+    })
+    if(present.length>0){
+        if(present[0].quantity+i===0){
+            data.splice(index,1)
+        }
+        else{
+            present[0].quantity +=i
+        }
+    }
+    else{
+        const product = await getdata(`${baseUrl}/product/${id}`)
+        product.quantity = 1
+        data.push(product)
+    }
+    localStorage.setItem("cloneBag",JSON.stringify(data))
+}
+
+async function removeItem(id){
+    const data = JSON.parse(localStorage.getItem("cloneBag")) || []
+    let index 
+    const present = data.filter(({id : bag_id},ind)=>{
+        if(id===bag_id){
+            index = ind
+            return true
+        }
+        return false
+    })
+    data.splice(index,1)
+    localStorage.setItem("cloneBag",JSON.stringify(data))
+}
+
+export {baseUrl, getdata, postData, deleteData, patchData, changeQuantity, removeItem}
