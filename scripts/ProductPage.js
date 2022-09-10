@@ -24,7 +24,7 @@ async function ProductsData(){
             })
         }
 
-        if(scategory){
+        if(scategory && scategory!=="shop all"){
             data = data.filter(({category,product_type})=>{
                 return category===scategory || scategory === product_type
             })
@@ -35,6 +35,7 @@ async function ProductsData(){
                 return brand===ssearchVal || name===ssearchVal || category===ssearchVal || product_type===ssearchVal
               })
         }
+        console.log(data)
         appendData(data);
         
     }
@@ -424,6 +425,7 @@ var pagination_element=document.getElementById("PaginationPart");
 
 function cardDataADD(paginatedItems){
     let childString=``;
+    wrapper.innerText = ""
     for(let i=0; i<paginatedItems.length; i++){
         let elm=paginatedItems[i];
         // Object.entries(elm.price);

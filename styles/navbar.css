@@ -120,6 +120,7 @@ nav > #navigations2 {
   justify-content: space-between;
   align-items: center;
   height: 6rem;
+  z-index: 2;
 }
 
 nav > #navigations2 > div {
@@ -216,6 +217,7 @@ nav > #stickymain {
   align-items: center;
   padding: 10px 20px;
   border-bottom: 1px solid lightgray;
+  z-index: 2;
 }
 
 nav > #stickymain > #Sheading {
@@ -268,7 +270,7 @@ nav #hoverEffect {
   background-color: #fff;
   z-index: 2;
   position: fixed;
-  top: 146px;
+  top: 150px;
   width: 100%;
   border-top: 1px solid lightgray;
   border-bottom: 1px solid lightgray;

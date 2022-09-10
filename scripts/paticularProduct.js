@@ -218,5 +218,7 @@ function createBag() {
       sum += parseInt(quantity)*parseFloat(price)
     }
   );
-  document.querySelector("#bagBtn span").innerText = `$${sum}`
+  const btn = document.querySelector("#bagBtn span")
+  btn.innerText = `$${sum}`
+  console.log(btn)
 }

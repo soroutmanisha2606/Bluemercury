@@ -469,7 +469,7 @@ function checkCard() {
   }
   const d = new Date();
   const d1 = new Date(expiryDate.value);
-  if (d.getTime() < d1.getTime()) {
+  if (d.getTime() > d1.getTime()) {
     alert("Your Card has been Expired.");
     return false;
   }

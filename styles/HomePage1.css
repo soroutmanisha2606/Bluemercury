@@ -1,0 +1,344 @@
+
+
+* {
+  box-sizing: border-box;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 100%;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+#numbertextd1 {
+  font-family: Montserrat Light, sans-serif;
+  color: #12284c;
+  margin:60px 100px;
+}
+#numbertextd1 h2 {
+  font-size: 34px;
+}
+#numbertextd1 span {
+  font-size: 25px;
+}
+#numbertextd1 p {
+    font-size: 22px;
+    width:32%;
+  }
+  #numbertextd1 a {
+    font-size: 17px;
+     color:#12284c;
+  }
+
+  #numbertextd2 {
+    font-family: Montserrat Light, sans-serif;
+    color: #ffff;
+    margin:100px 100px;
+  }
+  #numbertextd2 h2 {
+    font-size: 34px;
+  }
+  #numbertextd2 span {
+    font-size: 25px;
+  }
+  #numbertextd2 p {
+      font-size: 22px;
+      width:50%;
+    }
+    #numbertextd2 a {
+      font-size: 17px;
+       color:#ffff;
+    }
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+
+
+/* Slide Second css */
+
+#container1{
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    
+}
+
+#cont1{
+    display:flex;
+}
+
+#div3{
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+ 
+    width:70%;
+    gap:40px;
+    margin: 30px auto;
+   background-color:#F9F9F9;
+}
+#div3 a{
+  color:black;
+}
+#div3-data{
+    margin:200px auto;
+    background-color:#F9F9F9;
+}
+#img-div3{
+    height:600px;
+    width:100%;
+}
+
+#div2-div1{
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    gap:20px;
+    width:80%;
+    margin:auto;
+    border:1px solid red;
+}
+
+#div4,#div2{
+    text-align:center;
+    margin:100px auto;
+}
+
+
+
+#Bottam_paged_div1{
+  padding-bottom: 40px;
+  text-align: center;
+  background-color:#F9F9F9;
+  
+}
+#Bottam_paged_div1 p{
+  width:44%;
+  color:#12284c;
+  margin:auto;
+}
+#Bottam_paged_div1 h3{
+  color:#12284c;
+  font-size:32px;
+  
+}
+
+#Bottam_paged_div1_d1{
+  display:grid;
+  grid-template-columns: repeat(2,1fr);
+   width:50%;
+    gap:20px;
+  margin: 50px auto;
+  margin-bottom: 50px;
+}
+#Bottam_paged_div1_d1>div{
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  background-color: #fff;
+}
+#heading-bp{
+  padding-top:40px;
+  
+}
+.bp-d1img{
+   width:100%;
+}
+.bp-d1img2{
+  width:200px;
+}
+#bp_d1_d2{
+ margin-top: 40px;
+ 
+}
+#bp_d1_d2 p{
+  margin:20px auto;
+  
+  font-size: 21px;
+}
+.bp_d1_p1{
+  color: #12284c;
+  font-size: 20px;
+}
+.bp_d1_p2 ,.bp_d1_p3 {
+  font-size: 18px;
+  color:gray;
+}
+
+
+
+#Bottam_LastDiv_1{
+  display:grid;
+  grid-template-columns: repeat(3,1fr);
+  
+  width:80%;
+  margin:30px auto;
+  gap:20px;
+}
+#Bottam_LastDiv_1>div{
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  align-items:center;
+  color: #12284c;
+}
+
+#Bottam_LastDivimg{
+  height:400px;
+  width:100%;
+}
+
+#Bottam_LastDiv_1_1{
+  text-align: center;
+  margin:20px auto;
+}
+
+#Bottam_LastDiv_h3{
+  margin :10px auto;
+ font-size: 17px;
+}
+.Bottam_LastDiv_p{
+  font-size: 15px;
+  margin :10px auto;
+  width:80%;
+ }
+
+ #Bottam_LastDiv_1_1 a{
+
+  font-size: 17px;
+  text-decoration:underline;
+ }
+@media screen and (min-device-width: 100px) and (max-device-width: 968px) { 
+  /* STYLES HERE */
+
+  #Bottam_paged_div1_d1{
+    grid-template-columns: repeat(1,1fr);
+  }
+  #Bottam_LastDiv_1{
+    grid-template-columns: repeat(1,1fr);
+  }
+
+  #div2-div1{
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  #div3{
+    grid-template-columns: repeat(1,1fr);
+  }
+
+  #numbertextd1 {
+    font-size: 0px;
+  }
+  #numbertextd1 h2 {
+    font-size: 0px;
+  }
+  #numbertextd1 span {
+    font-size: 0px;
+  }
+  #numbertextd1 p {
+      font-size: 0px;
+      
+    }
+    #numbertextd1 a {
+      font-size: 0px;
+       color:#12284c;
+    }
+  
+   
+    #numbertextd2 h2 {
+      font-size: 0px;
+    }
+    #numbertextd2 span {
+      font-size: 0px;
+    }
+    #numbertextd2 p {
+        font-size: 0px;
+        width:50%;
+      }
+      #numbertextd2 a {
+        font-size: 0px;
+         color:#ffff;
+      }
+}
+
+
+
+

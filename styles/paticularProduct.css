@@ -5,7 +5,6 @@ body{
 #orderpage_maindiv{
     /* border: 2px solid blue; */
     display: flex;
-    gap: 10px;
     margin-bottom: 60px;
     
 }
@@ -16,12 +15,20 @@ body{
     margin: auto;
 } 
 */
+
+#orderpage_maindiv > div{
+    width:50%
+} 
+
 img{
-    width: 90%;
+    width: 100%;
    
- 
-    
-  
+}
+
+#image_of_product{
+    width: 800px;
+    height: 600px;
+    margin-left: 30px;
 }
 .ckecked{
     background-color: orange;
@@ -51,7 +58,8 @@ img{
     margin-top: 5px;
     margin-bottom: -20px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    /* border: 2px solid green; */
+  
+    width: 45%;
 }
 #offer_div{
     display: flex;
@@ -72,28 +80,40 @@ img{
 #img_div{
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     margin-left: 30px;
+    margin-top: 50px;
+    background-color: white;
 }
+
+#img_div > img{
+    width: 100%;
+    height: 600px;
+}
+
 #add_to_cart{
     display: flex;
     flex-direction: row;
-    width: 50%;
+    width: 70%;
     background-color: #12284c;
     color: white;
    font-size: 20px;
-    height: 50px;
+    height: 60px;
     gap: 15px;
     align-items: center;
     align-content: center;
     margin-bottom: 20px;
     border-radius: none;
+    justify-content: space-between;
    
 }
 #add_to_cart+div{
     margin-left: 10px;
+    
 }
 #cart_fav_add{
     margin-left: 10px;
     display: flex;
+    width: 100%;
+
     justify-content: space-around;
 }
 .product_info ,.product_info1,.product_info2,.product_info3{
@@ -139,7 +159,7 @@ display: flex;
     display: flex;
     margin-bottom: 20px;
     margin-top: -10px;
-    
+    margin-left: 23px;
     justify-content: space-between;
 }
 button{
@@ -156,12 +176,7 @@ button{
     align-content: center;
     
 }
-#img_div{
-    margin-top: 50px;
-    /* border: 2px solid black; */
-    background-color: white;
-    
-}
+
 #about{
     margin-left: 30px;
     font-size: 30px;
@@ -213,6 +228,13 @@ a{
     #orderpage_maindiv img{
         margin-top: -20px;
     }
+    #image_of_product{
+        width: 60px;
+        height: 200px;
+        width: 30%;
+      
+       
+    }
     #para{
 
         font-size: 10px;
@@ -255,11 +277,13 @@ a{
     }
     #right_div{
         box-shadow: none;
+        width: 100%;
+        margin-left: -10px;
     }
     #button_div{
         
         width: 50%;
-       
+        margin-left: -10px;
         margin-top: 16px;
         
        
@@ -269,10 +293,12 @@ a{
         height: 48  px;
     }
     #add_to_cart{
-        width: 70%;
-        margin-right: -12px;
-        margin-top: 15px;
+        width: 65%;
+        margin-right: -10px;
+        margin-top: 34px;
         font-size:10px;
+        height: 48px;
+        border-radius: 0px;
     }
     #product_info_main_div{
         width: 90%;
@@ -300,8 +326,11 @@ a{
         display: none;
     }
     #shipping{
-        margin-top: 20px;
+        margin-top: -10px;
         align-items: center;
+      margin-left: -5px;
+      height: 40px;
+      width: 300px;
     }
     .product{
         width: 25%;
@@ -322,6 +351,10 @@ a{
     }
     #orderpage_maindiv img{
         margin-top: -20px;
+    }
+    #right_div{
+        box-shadow: none;
+        width: 100%;
     }
     #para{
 
@@ -344,6 +377,13 @@ a{
     #star_div p{
         font-size: 20px;
 
+    }
+    #image_of_product{
+        width: 60px;
+        height: 300px;
+        width: 50%;
+      
+       
     }
     
     #offer_div img{
@@ -371,9 +411,12 @@ a{
     }
     #add_to_cart{
         width: 70%;
-        margin-right: -12px;
+        margin-right: 20px;
         margin-top: 25px;
+        margin-bottom: -10px;
         font-size:10px;
+        margin-left: 30px;
+        border-radius: 0px;
     }
     #product_info_main_div{
         width: 90%;
@@ -400,6 +443,11 @@ a{
     #button_div+div{
         display: none;
     }
+    #button_div{
+        height: 50px;
+        margin-top: 30px;
+        width: 200px;
+    }
     #shipping{
         margin-top: 20px;
         align-items: center;
@@ -415,6 +463,7 @@ a{
     align-items: center;
     justify-content: space-around;
     color: #12284c;
+    margin: 5px 0px;
 }
 #bag_img{
     width:70px;
@@ -492,6 +541,13 @@ a{
     text-align: center;
     font-size: 16px;
 }
+
+
+#sideBag{   
+    height: 71.5vh;
+    overflow-y: scroll;
+    padding-top: 10px;
+  }
 /*slider css*/
 /* Slideshow container */
 

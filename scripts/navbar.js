@@ -39,6 +39,7 @@ let offerInd = -1
 setInterval(()=>{
   offerInd = (offerInd+1)%4
   const offer = document.querySelector("#offer>div")
+  console.log(offer)
   if(offer){
     offer.innerText = offersList[offerInd] 
   }
