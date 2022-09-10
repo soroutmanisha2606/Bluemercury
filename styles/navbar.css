@@ -1,0 +1,557 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+nav * {
+  font-family: 'Montserrat', sans-serif;
+}
+
+nav a {
+  text-decoration: none;
+  color: #54647e;
+  font-size: 25px;
+}
+
+nav a:hover {
+  text-decoration: none;
+}
+
+nav p:hover{
+  cursor: pointer;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+}
+
+nav > #navigations {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  margin: auto;
+  margin-top: 10px;
+}
+
+nav > #navigations > div > div > a,
+nav > #navigations > div > div > p {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+}
+
+nav > #navigations > div > div > a > span,
+nav > #navigations > div > div > p > span {
+  font-size: 15px;
+  letter-spacing: 1px;
+  /* font-weight: bold; */
+  display: block;
+  margin-left: 10px;
+}
+
+nav > #navigations > #navigate {
+  display: flex;
+}
+
+nav > #navigations > #navigate > div {
+  margin: 0px 10px;
+}
+
+nav > #heading {
+  display: flex;
+  justify-content: center;
+}
+
+nav > #heading > div {
+  width: 18%;
+}
+
+nav > #heading > div > a > img,
+nav > #heading > div > p > img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+nav > #routes {
+  width: 70%;
+  margin: auto;
+  height: 5rem;
+  margin-top: 10px;
+  /* background-color: #54647E; */
+}
+
+nav > #routes > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+nav > #routes > div > div {
+  padding-bottom: 8px;
+}
+
+nav > #routes > div > div > a ,
+nav > #routes > div > div > p {
+  font-size: 18px;
+  color: #344765;
+}
+
+nav > #offer {
+  background-color: #12284c;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: x-small;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.sticky {
+  position: fixed;
+  background-color: #fff;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+nav > #navigations2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 6rem;
+  z-index: 2;
+}
+
+nav > #navigations2 > div {
+  /* position: absolute; */
+  width: 33%;
+}
+
+nav > #navigations2 > #navigationOption {
+  margin-left: 30px;
+  padding-top: 5px;
+}
+
+nav > #navigations2 > #navigationOption > button {
+  border: none;
+  background-color: #fff;
+  font-size: 25px;
+  font-weight: 100;
+}
+
+nav > #navigations2 > #headingMedium {
+  display: flex;
+  justify-content: center;
+}
+
+nav > #navigations2 > #headingMedium > div {
+  margin: auto;
+}
+
+
+
+nav > #navigations2 > #headingMedium > div > a > img,
+nav > #navigations2 > #headingMedium > div > p > img {
+  max-width: 174px;
+  max-height: 100%;
+}
+
+nav > #navigations2 > #navigateMedium {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 30px;
+  font-size: 18px;
+}
+
+nav > #navigations2 > #navigateMedium > div {
+  margin: 0px 10px;
+}
+
+nav > #navigations2 > #headingSmall {
+  display: flex;
+  justify-content: center;
+}
+
+nav > #navigations2 > #headingSmall > div {
+  margin: auto;
+}
+
+nav > #navigations2 > #headingSmall > div > a > img,
+nav > #navigations2 > #headingSmall > div > p > img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+nav > #searchBar {
+  margin: 10px;
+}
+
+nav > #searchBar > input {
+  width: 90%;
+  height: 3rem;
+  border: none;
+}
+
+nav > #searchBar > input:focus {
+  outline: none;
+}
+
+nav > #searchBar > button {
+  height: 3rem;
+  margin-left: -5px;
+  width: 5%;
+  border: none;
+  background-color: #fff;
+  font-size: 25px;
+}
+
+nav > #stickymain {
+  position: fixed;
+  background-color: #fff;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 1px solid lightgray;
+  z-index: 2;
+}
+
+nav > #stickymain > #Sheading {
+  width: 180px;
+}
+
+nav > #stickymain > #Sheading img {
+  max-width: 100%;
+}
+
+nav > #stickymain > #Snavigation {
+  height: 5rem;
+  width: 60%;
+  /* background-color: #12284c; */
+  display: flex;
+  align-items: center;
+}
+
+nav > #stickymain > #Snavigation > div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav > #stickymain > #Snavigation > div a,
+nav > #stickymain > #Snavigation > div p {
+  font-size: 16px;
+}
+
+
+
+nav > #stickymain > #Soption {
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+  font-size: 20px;
+}
+
+nav > #stickymain > #Soption p:hover,nav > #stickymain > #Snavigation > div p:hover{
+  cursor: pointer;
+}
+
+nav .routesHoverbox:hover {
+  border-bottom: 2px solid #344765;
+}
+
+nav #hoverEffect {
+  display: none;
+  background-color: #fff;
+  z-index: 2;
+  position: fixed;
+  top: 150px;
+  width: 100%;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+}
+
+nav #hoverEffectBetween {
+  display: none;
+  background-color: #fff;
+  z-index: 2;
+  position: fixed;
+  top: 70px;
+  width: 100%;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+}
+
+nav #hover3 {
+  display: flex;
+  width: 70%;
+  margin: 20px auto;
+}
+
+nav #hover3 > #menu {
+  width: 25%;
+}
+
+nav #hover3 > div {
+  width: 40%;
+}
+
+nav #hover3 > #menu > p,
+nav #hover2 > #menu > p,
+nav #contentShop > #menu > p {
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+nav #hover3 > #menu > p:hover,
+nav #hover2 > #menu > p:hover,
+nav #contentShop > #menu > p:hover {
+  cursor: pointer;
+}
+
+nav #hover3 > #menu > p:first-child,
+nav #hover2 > #menu > p:first-child,
+nav #contentShop > #menu > p:first-child {
+  color: #12284c;
+  font-weight: bold;
+}
+
+nav #hover3 > #image1 > div > img {
+  width: 90%;
+  height: 37rem;
+}
+
+nav #hover3 > #image1 > p,
+nav #hover2Images > #image1 > p,
+nav #hover2 > #image1 > p,
+nav #contentShop > #image1 > p {
+  font-size: 18px;
+  letter-spacing: 1px;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #12284c;
+}
+
+nav #hover3 > #image1 > p:hover,
+nav #hover2Images > #image1 > p:hover,
+nav #hover2 > #image1 > p:hover,
+nav #contentShop > #image1 > p:hover {
+  cursor: pointer;
+}
+
+nav #hover3 > #image1 > p:last-child,
+nav #hover2Images > #image1 > p:last-child,
+nav #hover2 > #image1 > p:last-child,
+nav #contentShop > #image1 > p:last-child {
+  font-size: 16px;
+  font-weight: normal;
+  color: #12284c;
+}
+
+nav #hover2Images {
+  display: flex;
+  width: 70%;
+  margin: 20px auto;
+}
+
+nav #hover2Images > div {
+  width: 50%;
+}
+
+nav #hover2Images > #image1 > div > img {
+  width: 80%;
+  height: 35rem;
+}
+
+nav #hover2 {
+  display: flex;
+  width: 45%;
+  margin: 20px auto;
+  justify-content: space-between;
+}
+
+nav #hover2 > #image1 > div > img {
+  width: 100%;
+  height: 35rem;
+}
+
+nav #mainShop {
+  display: flex;
+  width: 80%;
+  margin: 20px auto;
+}
+
+nav #staticShop {
+  border-right: 1px solid lightgrey;
+  width: 20%;
+}
+
+nav #staticShop > div {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0px;
+  width: 90%;
+}
+
+nav #staticShop > div > p {
+  font-size: 18px;
+  letter-spacing: 1px;
+  color: #727f94;
+}
+
+nav #staticShop > div > p:first-child:hover {
+  cursor: pointer;
+}
+
+nav #staticShop > div > p:last-child {
+  display: none;
+}
+
+nav #staticShop > div:first-child > p {
+  display: block;
+}
+
+nav #contentShop {
+  display: flex;
+  width: 75%;
+  margin: auto;
+  justify-content: space-between;
+}
+
+nav #contentShop > #menu > p {
+  margin: 10px 0px;
+}
+
+nav #contentShop > #image1 > div > img {
+  width: 100%;
+  height: 30rem;
+}
+
+nav #searchBarBetween,nav #searchBar{
+  display: block
+  background-color: crimson
+}
+
+
+nav #hoverSearchBar{
+  display: none;
+  background-color: #fff;
+  position: fixed;
+  width: 100%;
+  top: 148px;
+  padding: 10px 0px;
+  /* padding-top: 20px; */
+}
+
+nav #hoverSearchBarBetween{
+  display: none;
+  background-color: #fff;
+  position: fixed;
+  width: 100%;
+  top: 60px;
+  padding: 10px 0px;
+}
+
+nav #hoverSearchBar > input, nav #hoverSearchBarBetween > input{
+  width: 90%;
+  height: 3rem;
+  border: none;
+  font-size: 25px;
+}
+
+nav #hoverSearchBar > input:focus, nav #hoverSearchBarBetween > input:focus{
+  outline: none;
+}
+
+nav #hoverSearchBar > button,nav #hoverSearchBarBetween > button{
+  width: 5%;
+  margin-left: -5px ;
+  font-size: larger;
+  background-color: #fff;
+  border: none;
+  font-size: 25px;
+}
+
+nav #hoverSerachResult{
+  width: 100%;
+  background-color: #fff;
+  color: #12284c;
+  margin-top: 30px;
+}
+
+nav #hoverSerachResult > div{
+  border-top: 1px solid lightgray;
+  width: 90%;
+  margin: auto;
+  padding: 40px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav #hoverSerachResult > div > div{
+  width: 45%;
+  letter-spacing: 1px;
+}
+
+/* nav #hoverSerachResult > div >  #staticResult{
+  width: 60%;
+} */
+
+nav #hoverSerachResult > div >  #staticResult>div:last-child{
+  border-top: 1px solid lightgray;
+  margin-top: 30px;
+  padding-top: 30px;
+}
+
+nav #hoverSerachResult > div >  #staticResult>div > p{
+  margin: 20px 0px;
+  font-size: large;
+}
+
+nav #resultHeading{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+nav #resultHeading > div{
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+  font-size: larger;
+  align-items: center;
+}
+
+nav #resultHeading > div>p:last-child{
+  font-weight: bold;
+}
+
+nav #resultProducts{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 30px;
+}
+
+nav #resultProducts > .rp{
+  display: flex;
+  justify-content: space-between;
+}
+
+nav #resultProducts > .rp > .rpImageBox{
+  width: 30%;
+}
+
+nav #resultProducts > .rp > .rpImageBox >img{
+  width: 100%;
+  object-fit: contain;
+}
+
+nav #resultProducts > .rp > div:last-child{
+  width: 55%;
+}

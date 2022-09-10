@@ -1,0 +1,41 @@
+#loginMain{
+    display: flex;
+    justify-content: center;
+    height: 70vh;
+    align-items: center;
+}
+#loginForm{
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    color: #12284C;
+    margin: 50px auto;
+    letter-spacing: 1px;
+}
+
+#loginForm > h2{
+    margin: 100px 0px;
+}
+
+#loginForm > form > div{
+    margin: 10px;
+}
+
+#loginForm > form > div > input{
+    width: 100%;
+    height: 4rem;
+    max-width: 500px;
+    padding-left: 10px;
+}
+
+#loginForm > form > div > input[type=button]{
+    background-color: #12284C;
+    color: white;
+    letter-spacing: 1px;
+    font-size: large;
+}
+
+#loginForm > p > span > a {
+    text-decoration: underline;
+    color: #12284C;
+}
